@@ -1,0 +1,8 @@
+{% extends 'app_shop/base.html' %}
+{% block content %}
+    <h1>{{ product.name }}</h1>
+    <p>Kategoriya: {{ product.category.name }}</p>
+    <p class="price">Narxi: {{ product.price }}$</p>
+    <p>Tavsif: {{ product.description }}</p>
+    <p>Mavjudligi: {% if product.is_available %}Sotuvda bor{% else %}Yo'q{% endif %}</p>
+{% endblock %}

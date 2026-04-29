@@ -1,0 +1,17 @@
+{% extends 'app_shop/base.html' %}
+
+{% block title %}Ro'yxatdan o'tish{% endblock %}
+
+{% block content %}
+    <div class="auth-form">
+        <h2>Yangi hisob yaratish</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-detail" style="width: 100%; border: none;">Ro'yxatdan o'tish</button>
+        </form>
+        <p style="margin-top: 15px; text-align: center;">
+            Akkauntingiz bormi? <a href="{% url 'login' %}">Kirish</a>
+        </p>
+    </div>
+{% endblock %}

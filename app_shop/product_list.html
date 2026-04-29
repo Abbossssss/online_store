@@ -1,0 +1,27 @@
+{% extends 'app_shop/base.html' %}
+
+{% block content %}
+    <h2 style="text-align: center; color: #2c3e50;">Barcha mahsulotlar</h2>
+    
+    <div class="product-grid">
+        {% for p in products %}
+            <div class="product-card">
+                <span class="category-badge">{{ p.category.name }}</span>
+                <h3>{{ p.name }}</h3>
+                <div class="price">{{ p.price }}$</div>
+                <div class="status">
+                    {% if p.is_available %}
+                        <span style="color: #27ae60;">● Sotuvda mavjud</span>
+                    {% else %}
+                        <span style="color: #e74c3c;">○ Tugagan</span>
+                    {% endif %}
+                </div>
+                <a href="{% url 'product_detail' p.id %}" class="btn-detail">Batafsil</a>
+            </div>
+        {% empty %}
+            <div style="grid-column: 1/-1; text-align: center; padding: 50px;">
+                <p style="font-size: 18px; color: #888;">Mahsulotlar topilmadi.</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
